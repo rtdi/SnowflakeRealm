@@ -14,8 +14,8 @@ import org.apache.juli.logging.LogFactory;
  * 
  * There are two ways to set the jdbcurl
  * 1. In the server.xml as property &lt;Realm className="io.rtdi.appcontainer.snowflakerealm.SnowflakeRealm" 
- *    SNOWFLAKEJDBCURL="jdbc:snowflake://&lt;account_name&gt;.snowflakecomputing.com/?&lt;connection_params&gt;"/&gt;
- * 2. As environment variable SNOWFLAKEJDBCURL
+ *    JDBCURL="jdbc:snowflake://&lt;account_name&gt;.snowflakecomputing.com/?&lt;connection_params&gt;"/&gt;
+ * 2. As environment variable JDBCURL
  *
  */
 public class SnowflakeRealm extends RealmBase {
@@ -31,7 +31,7 @@ public class SnowflakeRealm extends RealmBase {
 		if (jdbcurl == null) {
 			jdbcurl = System.getenv("JDBCURL");
 			if (jdbcurl == null) {
-				log.debug("No snowflake-jdbc-url configured, neither as property in the server.xml nor as environment variable SNOWFLAKEJDBCURL");
+				log.debug("No jdbc-url configured, neither as property in the server.xml nor as environment variable JDBCURL");
 				return null;
 			}
 		}
@@ -69,14 +69,14 @@ public class SnowflakeRealm extends RealmBase {
 	/**
 	 * @return JDBC URL of the used database
 	 */
-	public String getSnowflakeJDBCURL() {
+	public String getJDBCURL() {
 		return jdbcurl;
 	}
 
 	/**
 	 * @param jdbcurl the JDBC URL to be used
 	 */
-	public void setSnowflakeJDBCURL(String jdbcurl) {
+	public void setJDBCURL(String jdbcurl) {
 		this.jdbcurl = jdbcurl;
 	}
 }
