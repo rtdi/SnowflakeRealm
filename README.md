@@ -1,4 +1,4 @@
-# Snowfalke Application Server Realm
+# Snowflake Application Server Realm
 _The security foundation for the Snowflake Application Server_
 
 A tomcat realm allows to configure various authentication methods and groups. 
